@@ -569,6 +569,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Manface
       objectReference: {fileID: 0}
+    - target: {fileID: 286942124570221955, guid: b9938819402f5ed4594b916b5c4ba76a, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1436599811937165712, guid: b9938819402f5ed4594b916b5c4ba76a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.33
