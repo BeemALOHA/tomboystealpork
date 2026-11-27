@@ -19,6 +19,10 @@ public class GameManager : MonoBehaviour
     [Tooltip("ความเร็วเพิ่มขึ้นเท่าไรต่อวินาที")]
     public float acceleration = 0.1f;
 
+    [Tooltip("รอกี่วินาทีก่อนเริ่มวิ่ง")]
+    public float startDelay = 1f;
+    float startTimer;
+
     [Header("UI Game Over")]
     [Tooltip("Panel หน้าจอ Game Over ที่ซ่อนไว้ตอนเริ่มเกม")]
     public GameObject gameOverPanel;
@@ -37,7 +41,7 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
         Time.timeScale = 1f;
-        Speed = startSpeed;
+        Speed = startDelay > 0f ? 0f : startSpeed;
         IsPlaying = true;
 
         if (gameOverPanel != null)
@@ -52,6 +56,12 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (!IsPlaying) return;
+        if (startTimer < startDelay)
+        {
+            startTimer += Time.deltaTime;
+            if (startTimer >= startDelay) Speed = startSpeed;
+            return;
+        }
 
         Speed = Mathf.Min(maxSpeed, Speed + acceleration * Time.deltaTime);
         Distance += Speed * Time.deltaTime;
