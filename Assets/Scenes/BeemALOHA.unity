@@ -1663,7 +1663,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 2061944703816186074, guid: d4bd63c0a584cc7409e517cac9fb3976, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1943,6 +1943,10 @@ Transform:
 --- !u!1001 &2054312671
 PrefabInstance:
   m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499337513}
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
