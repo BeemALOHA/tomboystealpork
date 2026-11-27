@@ -19,6 +19,10 @@ public class GameManager : MonoBehaviour
     [Tooltip("ความเร็วเพิ่มขึ้นเท่าไรต่อวินาที")]
     public float acceleration = 0.1f;
 
+    [Header("UI Game Over")]
+    [Tooltip("Panel หน้าจอ Game Over ที่ซ่อนไว้ตอนเริ่มเกม")]
+    public GameObject gameOverPanel;
+
     public float Speed { get; private set; }
     public float Distance { get; private set; }
     public int BonusScore { get; private set; }
@@ -35,6 +39,9 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         Speed = startSpeed;
         IsPlaying = true;
+
+        if (gameOverPanel != null)
+            gameOverPanel.SetActive(false);
     }
 
     void OnDestroy()
@@ -69,11 +76,18 @@ public class GameManager : MonoBehaviour
 
     public void AddBonus(int amount) => BonusScore += amount;
 
+    /// <summary>ทางลัดให้สคริปต์ภายนอกเรียกจบเกมได้เช่นเดียวกับ GameOver()</summary>
+    public void TriggerGameOver() => GameOver();
+
     public void GameOver()
     {
         if (!IsPlaying) return;
         IsPlaying = false;
         Time.timeScale = 0f;
+
+        if (gameOverPanel != null)
+            gameOverPanel.SetActive(true);
+
         OnGameOver?.Invoke();
     }
 

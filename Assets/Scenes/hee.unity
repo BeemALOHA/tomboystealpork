@@ -119,6 +119,60 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &4388534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4388536}
+  - component: {fileID: 4388535}
+  m_Layer: 0
+  m_Name: Obstacle_Spawner_boy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &4388535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4388534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34749754cac50f545b7c9edd1c8ce24a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StandaloneObstacleSpawner
+  obstaclePrefabs:
+  - {fileID: 9114759466430982743, guid: 87fc7f2127001e04d8e3aa615eddbac6, type: 3}
+  - {fileID: 9114759466430982743, guid: b36843f7012e79d4e87d670a438e6082, type: 3}
+  - {fileID: 9114759466430982743, guid: c8eebc7ad4f570141a0a8ab23075659c, type: 3}
+  - {fileID: 8564143365398933707, guid: c68f1bdf4b31d794489833685811c045, type: 3}
+  - {fileID: 9114759466430982743, guid: 87fc7f2127001e04d8e3aa615eddbac6, type: 3}
+  scrollSpeed: 5
+  spawnInterval: 9
+  destroyX: -35
+  preventImmediateRepeat: 1
+--- !u!4 &4388536
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4388534}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 19, y: -50.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &106965620
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d671320530050441ac35b0f6259d635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StandaloneScroller
-  scrollSpeed: 5
+  scrollSpeed: 3
   segmentWidth: 20
   totalSegments: 2
 --- !u!61 &106965623
@@ -295,7 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d671320530050441ac35b0f6259d635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StandaloneScroller
-  scrollSpeed: 5
+  scrollSpeed: 3
   segmentWidth: 20
   totalSegments: 2
 --- !u!1 &485967464 stripped
@@ -315,7 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d671320530050441ac35b0f6259d635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StandaloneScroller
-  scrollSpeed: 5
+  scrollSpeed: 3
   segmentWidth: 20
   totalSegments: 2
 --- !u!1 &574054994
@@ -364,7 +418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d671320530050441ac35b0f6259d635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StandaloneScroller
-  scrollSpeed: 5
+  scrollSpeed: 3
   segmentWidth: 20
   totalSegments: 2
 --- !u!61 &574054997
@@ -502,7 +556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d671320530050441ac35b0f6259d635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StandaloneScroller
-  scrollSpeed: 5
+  scrollSpeed: 3
   segmentWidth: 20
   totalSegments: 2
 --- !u!212 &574802588
@@ -630,7 +684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d671320530050441ac35b0f6259d635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StandaloneScroller
-  scrollSpeed: 5
+  scrollSpeed: 3
   segmentWidth: 20
   totalSegments: 2
 --- !u!61 &844793714
@@ -784,7 +838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d671320530050441ac35b0f6259d635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StandaloneScroller
-  scrollSpeed: 5
+  scrollSpeed: 3
   segmentWidth: 20
   totalSegments: 2
 --- !u!61 &904800303
@@ -938,7 +992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d671320530050441ac35b0f6259d635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StandaloneScroller
-  scrollSpeed: 5
+  scrollSpeed: 3
   segmentWidth: 20
   totalSegments: 2
 --- !u!61 &1067045846
@@ -1046,7 +1100,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &1100433125
+--- !u!1 &1067899657
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1054,9 +1108,63 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1100433128}
-  - component: {fileID: 1100433127}
-  - component: {fileID: 1100433126}
+  - component: {fileID: 1067899659}
+  - component: {fileID: 1067899658}
+  m_Layer: 0
+  m_Name: Obstacle_Spawner_Miko
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1067899658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067899657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34749754cac50f545b7c9edd1c8ce24a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StandaloneObstacleSpawner
+  obstaclePrefabs:
+  - {fileID: 9114759466430982743, guid: e3c8fce855b9fe64796d32a95cf3abe7, type: 3}
+  - {fileID: 4187611182243078262, guid: 41e7bbd2d58e1914a83280a6baf5beba, type: 3}
+  - {fileID: 8564143365398933707, guid: c68f1bdf4b31d794489833685811c045, type: 3}
+  - {fileID: 9114759466430982743, guid: b36843f7012e79d4e87d670a438e6082, type: 3}
+  - {fileID: 9114759466430982743, guid: c8eebc7ad4f570141a0a8ab23075659c, type: 3}
+  scrollSpeed: 5
+  spawnInterval: 5
+  destroyX: -35
+  preventImmediateRepeat: 1
+--- !u!4 &1067899659
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067899657}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.88, y: -0.66197, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1321796258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1321796261}
+  - component: {fileID: 1321796260}
+  - component: {fileID: 1321796259}
   m_Layer: 0
   m_Name: City_map_0 (2)
   m_TagString: Untagged
@@ -1064,29 +1172,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1100433126
+--- !u!114 &1321796259
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1100433125}
+  m_GameObject: {fileID: 1321796258}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d671320530050441ac35b0f6259d635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StandaloneScroller
-  scrollSpeed: 5
+  scrollSpeed: 3
   segmentWidth: 20
   totalSegments: 2
---- !u!212 &1100433127
+--- !u!212 &1321796260
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1100433125}
+  m_GameObject: {fileID: 1321796258}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -1133,21 +1241,21 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 50.96026, y: 14.400001}
+  m_Size: {x: 30.070055, y: 14.400001}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!4 &1100433128
+--- !u!4 &1321796261
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1100433125}
+  m_GameObject: {fileID: 1321796258}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 38.63, y: -50, z: 0}
+  m_LocalPosition: {x: 32.01, y: -50, z: 0}
   m_LocalScale: {x: 0.35070398, y: 0.40645596, z: 0.46}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1183,7 +1291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d671320530050441ac35b0f6259d635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StandaloneScroller
-  scrollSpeed: 5
+  scrollSpeed: 3
   segmentWidth: 20
   totalSegments: 2
 --- !u!212 &1337587760
@@ -1240,7 +1348,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 61.99503, y: 14.400001}
+  m_Size: {x: 53.80623, y: 14.400001}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1254,7 +1362,7 @@ Transform:
   m_GameObject: {fileID: 1337587758}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.815002, y: -50, z: 0}
+  m_LocalPosition: {x: 17.3791, y: -50, z: 0}
   m_LocalScale: {x: 0.35070398, y: 0.40645596, z: 0.46}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1290,7 +1398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d671320530050441ac35b0f6259d635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StandaloneScroller
-  scrollSpeed: 5
+  scrollSpeed: 3
   segmentWidth: 20
   totalSegments: 2
 --- !u!212 &1616760749
@@ -1413,7 +1521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d671320530050441ac35b0f6259d635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StandaloneScroller
-  scrollSpeed: 5
+  scrollSpeed: 3
   segmentWidth: 20
   totalSegments: 2
 --- !u!61 &1766834235
@@ -1567,7 +1675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d671320530050441ac35b0f6259d635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StandaloneScroller
-  scrollSpeed: 5
+  scrollSpeed: 3
   segmentWidth: 20
   totalSegments: 2
 --- !u!61 &1770491505
@@ -1675,7 +1783,27 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &1779523198
+--- !u!1 &1855208979 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5961008815303626231, guid: 4efbcaa75acd1a24bbfb2404d761cb52, type: 3}
+  m_PrefabInstance: {fileID: 2120020732777802954}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1855208983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855208979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d671320530050441ac35b0f6259d635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StandaloneScroller
+  scrollSpeed: 3
+  segmentWidth: 20
+  totalSegments: 2
+--- !u!1 &1905097379
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1683,9 +1811,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1779523201}
-  - component: {fileID: 1779523200}
-  - component: {fileID: 1779523199}
+  - component: {fileID: 1905097382}
+  - component: {fileID: 1905097381}
+  - component: {fileID: 1905097380}
   m_Layer: 0
   m_Name: Forest_map_0 (2)
   m_TagString: Untagged
@@ -1693,29 +1821,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1779523199
+--- !u!114 &1905097380
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1779523198}
+  m_GameObject: {fileID: 1905097379}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d671320530050441ac35b0f6259d635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StandaloneScroller
-  scrollSpeed: 5
+  scrollSpeed: 3
   segmentWidth: 20
   totalSegments: 2
---- !u!212 &1779523200
+--- !u!212 &1905097381
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1779523198}
+  m_GameObject: {fileID: 1905097379}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -1767,41 +1895,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!4 &1779523201
+--- !u!4 &1905097382
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1779523198}
+  m_GameObject: {fileID: 1905097379}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 32.7156, y: 0.029999971, z: 0}
+  m_LocalPosition: {x: 32.65, y: 0.029999971, z: 0}
   m_LocalScale: {x: 1.4751, y: 1.4884, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1855208979 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5961008815303626231, guid: 4efbcaa75acd1a24bbfb2404d761cb52, type: 3}
-  m_PrefabInstance: {fileID: 2120020732777802954}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1855208983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1855208979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d671320530050441ac35b0f6259d635, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StandaloneScroller
-  scrollSpeed: 5
-  segmentWidth: 20
-  totalSegments: 2
 --- !u!1 &1966424663
 GameObject:
   m_ObjectHideFlags: 0
@@ -1832,7 +1940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d671320530050441ac35b0f6259d635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StandaloneScroller
-  scrollSpeed: 5
+  scrollSpeed: 3
   segmentWidth: 20
   totalSegments: 2
 --- !u!212 &1966424665
@@ -1926,7 +2034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d671320530050441ac35b0f6259d635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StandaloneScroller
-  scrollSpeed: 5
+  scrollSpeed: 3
   segmentWidth: 20
   totalSegments: 2
 --- !u!1 &1997960736
@@ -1975,7 +2083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d671320530050441ac35b0f6259d635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StandaloneScroller
-  scrollSpeed: 5
+  scrollSpeed: 3
   segmentWidth: 20
   totalSegments: 2
 --- !u!61 &1997960739
@@ -2135,9 +2243,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chunk_Miko_Start
       objectReference: {fileID: 0}
+    - target: {fileID: 2344690720391573640, guid: 11cab22d497caef4491d98defd2357ba, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3222163557019900401, guid: 11cab22d497caef4491d98defd2357ba, type: 3}
       propertyPath: destroyX
       value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070959136568285838, guid: 11cab22d497caef4491d98defd2357ba, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2174,13 +2290,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: miko
       objectReference: {fileID: 0}
+    - target: {fileID: 1391697659749933539, guid: 484228465804ae44184f3923794f8697, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2024518063959547270, guid: 484228465804ae44184f3923794f8697, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.413
+      objectReference: {fileID: 0}
+    - target: {fileID: 2024518063959547270, guid: 484228465804ae44184f3923794f8697, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.451
+      objectReference: {fileID: 0}
+    - target: {fileID: 2351574264218547968, guid: 484228465804ae44184f3923794f8697, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0812259
+      objectReference: {fileID: 0}
+    - target: {fileID: 2351574264218547968, guid: 484228465804ae44184f3923794f8697, type: 3}
+      propertyPath: m_Size.y
+      value: 0.94803387
+      objectReference: {fileID: 0}
+    - target: {fileID: 2351574264218547968, guid: 484228465804ae44184f3923794f8697, type: 3}
+      propertyPath: m_Offset.x
+      value: 2.3851793
+      objectReference: {fileID: 0}
+    - target: {fileID: 2351574264218547968, guid: 484228465804ae44184f3923794f8697, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.4821305
+      objectReference: {fileID: 0}
     - target: {fileID: 4409364976023255651, guid: 484228465804ae44184f3923794f8697, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.83
+      value: -9.678
       objectReference: {fileID: 0}
     - target: {fileID: 4409364976023255651, guid: 484228465804ae44184f3923794f8697, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.101
       objectReference: {fileID: 0}
     - target: {fileID: 4409364976023255651, guid: 484228465804ae44184f3923794f8697, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2230,6 +2374,14 @@ PrefabInstance:
     - target: {fileID: 1930815452412138088, guid: 4efbcaa75acd1a24bbfb2404d761cb52, type: 3}
       propertyPath: m_Name
       value: 'Chunk_Boy_Start '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605082968749276505, guid: 4efbcaa75acd1a24bbfb2404d761cb52, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922543034357194548, guid: 4efbcaa75acd1a24bbfb2404d761cb52, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3999803061741583419, guid: 4efbcaa75acd1a24bbfb2404d761cb52, type: 3}
       propertyPath: destroyX
@@ -2308,11 +2460,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 436833335581895988, guid: 0b86e6e90f76a944889a807d47e6d7ab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: -7.44
       objectReference: {fileID: 0}
     - target: {fileID: 436833335581895988, guid: 0b86e6e90f76a944889a807d47e6d7ab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -50
+      value: -51.46
       objectReference: {fileID: 0}
     - target: {fileID: 436833335581895988, guid: 0b86e6e90f76a944889a807d47e6d7ab, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2345,6 +2497,22 @@ PrefabInstance:
     - target: {fileID: 436833335581895988, guid: 0b86e6e90f76a944889a807d47e6d7ab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152312877852695122, guid: 0b86e6e90f76a944889a807d47e6d7ab, type: 3}
+      propertyPath: m_Size.x
+      value: 0.91891384
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152312877852695122, guid: 0b86e6e90f76a944889a807d47e6d7ab, type: 3}
+      propertyPath: m_Size.y
+      value: 1.0000038
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152312877852695122, guid: 0b86e6e90f76a944889a807d47e6d7ab, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.07297754
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152312877852695122, guid: 0b86e6e90f76a944889a807d47e6d7ab, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.032434464
       objectReference: {fileID: 0}
     - target: {fileID: 4928924545744884099, guid: 0b86e6e90f76a944889a807d47e6d7ab, type: 3}
       propertyPath: m_Name
@@ -2652,10 +2820,12 @@ SceneRoots:
   - {fileID: 856009228834742494}
   - {fileID: 2120020732777802954}
   - {fileID: 1966424666}
-  - {fileID: 1100433128}
   - {fileID: 1337587761}
-  - {fileID: 1779523201}
+  - {fileID: 1321796261}
   - {fileID: 574802589}
   - {fileID: 1616760750}
+  - {fileID: 1905097382}
   - {fileID: 3440744880717251027}
   - {fileID: 5267936451308019306}
+  - {fileID: 1067899659}
+  - {fileID: 4388536}
