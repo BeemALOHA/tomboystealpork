@@ -21,7 +21,15 @@ public class Chunk : MonoBehaviour
         var gm = GameManager.Instance;
         if (gm == null) return;
         transform.position += Vector3.left * gm.Speed * Time.deltaTime;
-        if (RightEdge < destroyX) Destroy(gameObject);
+
+        // ลบเมื่อพ้นขอบซ้ายของกล้องทุกตัวไปแล้ว 5 หน่วย
+        float leftEdge = float.MaxValue;
+        foreach (var cam in Camera.allCameras)
+        {
+            float halfW = cam.orthographicSize * cam.aspect;
+            leftEdge = Mathf.Min(leftEdge, cam.transform.position.x - halfW);
+        }
+        if (RightEdge < leftEdge - 5f) Destroy(gameObject);
     }
 
     void OnDrawGizmos()

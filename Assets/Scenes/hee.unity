@@ -273,6 +273,54 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &303799774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 303799776}
+  - component: {fileID: 303799775}
+  m_Layer: 0
+  m_Name: mikoSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &303799775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303799774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d93515f551e09442ba5858072cf65da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChunkSpawner
+  chunkPrefabs:
+  - {fileID: 3222163557019900401, guid: 11cab22d497caef4491d98defd2357ba, type: 3}
+  startChunk: {fileID: 0}
+  spawnAheadX: 30
+--- !u!4 &303799776
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303799774}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &355930147 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5541854335368766220, guid: 4efbcaa75acd1a24bbfb2404d761cb52, type: 3}
@@ -575,6 +623,54 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.4199977, y: -50, z: 0}
   m_LocalScale: {x: 0.35070398, y: 0.40645596, z: 0.46}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &632525454
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 632525456}
+  - component: {fileID: 632525455}
+  m_Layer: 0
+  m_Name: 'boySpawner '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &632525455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632525454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d93515f551e09442ba5858072cf65da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChunkSpawner
+  chunkPrefabs:
+  - {fileID: 3999803061741583419, guid: 4efbcaa75acd1a24bbfb2404d761cb52, type: 3}
+  startChunk: {fileID: 0}
+  spawnAheadX: 30
+--- !u!4 &632525456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632525454}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 50, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1256,53 +1352,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 18.815002, y: -50, z: 0}
   m_LocalScale: {x: 0.35070398, y: 0.40645596, z: 0.46}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1518991167
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1518991169}
-  - component: {fileID: 1518991168}
-  m_Layer: 0
-  m_Name: mikoSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1518991168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1518991167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d93515f551e09442ba5858072cf65da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChunkSpawner
-  chunkPrefabs: []
-  startChunk: {fileID: 0}
-  spawnAheadX: 30
---- !u!4 &1518991169
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1518991167}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.03292, y: -50.46564, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2182,6 +2231,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chunk_Miko_Start
       objectReference: {fileID: 0}
+    - target: {fileID: 3222163557019900401, guid: 11cab22d497caef4491d98defd2357ba, type: 3}
+      propertyPath: destroyX
+      value: -100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -2273,6 +2326,10 @@ PrefabInstance:
     - target: {fileID: 1930815452412138088, guid: 4efbcaa75acd1a24bbfb2404d761cb52, type: 3}
       propertyPath: m_Name
       value: 'Chunk_Boy_Start '
+      objectReference: {fileID: 0}
+    - target: {fileID: 3999803061741583419, guid: 4efbcaa75acd1a24bbfb2404d761cb52, type: 3}
+      propertyPath: destroyX
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 5541854335368766220, guid: 4efbcaa75acd1a24bbfb2404d761cb52, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2576,10 +2633,11 @@ SceneRoots:
   - {fileID: 3064043999619007667}
   - {fileID: 856009228834742494}
   - {fileID: 2120020732777802954}
-  - {fileID: 1518991169}
   - {fileID: 1966424666}
   - {fileID: 1100433128}
   - {fileID: 1337587761}
   - {fileID: 1779523201}
   - {fileID: 574802589}
   - {fileID: 1616760750}
+  - {fileID: 303799776}
+  - {fileID: 632525456}
