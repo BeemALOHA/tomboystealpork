@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using UnityEngine.UI;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -23,6 +25,13 @@ public class GameManager : MonoBehaviour
     public float startDelay = 1f;
     float startTimer;
 
+    [Header("UI คะแนน")]
+    [Tooltip("ข้อความแสดงคะแนนแบบ TextMeshPro (ไม่บังคับ)")]
+    public TMP_Text scoreTextTMP;
+    [Tooltip("ข้อความแสดงคะแนนแบบ Legacy UI Text (ไม่บังคับ)")]
+    public Text scoreTextLegacy;
+    public string scoreFormat = "Score: {0}";
+
     [Header("UI Game Over")]
     [Tooltip("Panel หน้าจอ Game Over ที่ซ่อนไว้ตอนเริ่มเกม")]
     public GameObject gameOverPanel;
@@ -37,6 +46,8 @@ public class GameManager : MonoBehaviour
     public event Action OnFlipPressed;
     public event Action OnGameOver;
 
+    int lastShownScore = -1;
+
     void Awake()
     {
         Instance = this;
@@ -46,6 +57,8 @@ public class GameManager : MonoBehaviour
 
         if (gameOverPanel != null)
             gameOverPanel.SetActive(false);
+
+        UpdateScoreUI(force: true);
     }
 
     void OnDestroy()
@@ -66,6 +79,8 @@ public class GameManager : MonoBehaviour
         Speed = Mathf.Min(maxSpeed, Speed + acceleration * Time.deltaTime);
         Distance += Speed * Time.deltaTime;
 
+        UpdateScoreUI();
+
         if (FlipPressedThisFrame())
             OnFlipPressed?.Invoke();
     }
@@ -84,7 +99,11 @@ public class GameManager : MonoBehaviour
 #endif
     }
 
-    public void AddBonus(int amount) => BonusScore += amount;
+    public void AddBonus(int amount)
+    {
+        BonusScore += amount;
+        UpdateScoreUI(force: true);
+    }
 
     /// <summary>ทางลัดให้สคริปต์ภายนอกเรียกจบเกมได้เช่นเดียวกับ GameOver()</summary>
     public void TriggerGameOver() => GameOver();
@@ -93,6 +112,7 @@ public class GameManager : MonoBehaviour
     {
         if (!IsPlaying) return;
         IsPlaying = false;
+        UpdateScoreUI(force: true);
         Time.timeScale = 0f;
 
         if (gameOverPanel != null)
@@ -105,5 +125,16 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    void UpdateScoreUI(bool force = false)
+    {
+        int current = Score;
+        if (!force && current == lastShownScore) return;
+        lastShownScore = current;
+
+        string text = string.Format(scoreFormat, current);
+        if (scoreTextTMP != null) scoreTextTMP.text = text;
+        if (scoreTextLegacy != null) scoreTextLegacy.text = text;
     }
 }

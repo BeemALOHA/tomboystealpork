@@ -3,7 +3,7 @@ using UnityEngine;
 
 /// <summary>
 /// ตัวละครวิ่ง (ใช้ทั้งมิโกะและผู้ชาย)
-/// - ตัวละครอยู่กับที่แกน X  โลกเป็นฝ่ายเลื่อนมาหา
+/// - ตัวละครอยู่กับที่แกน X โลกเป็นฝ่ายเลื่อนมาหา
 /// - กดปุ่ม = กลับแรงโน้มถ่วง ไปติดเพดาน/พื้น
 /// - canStompGhosts = true สำหรับมิโกะ (เหยียบหัวผีได้แบบมาริโอ้)
 /// </summary>
@@ -11,7 +11,7 @@ using UnityEngine;
 public class RunnerController : MonoBehaviour
 {
     [Header("ความสามารถ")]
-    [Tooltip("ติ๊กให้มิโกะ  ปล่อยว่างให้ผู้ชาย")]
+    [Tooltip("ติ๊กให้มิโกะ ปล่อยว่างให้ผู้ชาย")]
     public bool canStompGhosts = false;
 
     [Header("ฟิสิกส์")]
@@ -28,12 +28,8 @@ public class RunnerController : MonoBehaviour
     public LayerMask groundLayer;
     public float groundCheckDistance = 0.08f;
 
-    [Header("ตกหลุม = ตาย (พิกัด world Y ของช่องนี้)")]
-    public float killBelowY = -6f;
-    public float killAboveY = 6f;
-
     [Header("ภาพ (ไม่บังคับ)")]
-    [Tooltip("ลูก (child) ที่มี SpriteRenderer  จะถูกกลับหัวตอนฟริบ")]
+    [Tooltip("ลูก (child) ที่มี SpriteRenderer จะถูกกลับหัวตอนฟริบ")]
     public Transform visual;
     public float flipVisualTime = 0.12f;
     public Animator animator;
@@ -45,7 +41,7 @@ public class RunnerController : MonoBehaviour
 
     Rigidbody2D rb;
     Collider2D col;
-    int gravityDir = -1;          // -1 = ลงพื้น, +1 = ขึ้นเพดาน
+    int gravityDir = -1; // -1 = ลงพื้น, +1 = ขึ้นเพดาน
     float bufferTimer;
     float baseScaleY = 1f;
     readonly HashSet<string> animParams = new HashSet<string>();
@@ -98,10 +94,6 @@ public class RunnerController : MonoBehaviour
                 DoFlip();
             }
         }
-
-        // ตกหลุม
-        float y = transform.position.y;
-        if (y < killBelowY || y > killAboveY) Die();
 
         // หมุนภาพกลับหัวแบบนุ่ม ๆ (scale Y ผ่าน 0 = ดูเหมือนบิดตัว)
         var s = visual.localScale;
@@ -160,14 +152,9 @@ public class RunnerController : MonoBehaviour
 
     bool IsStomping(Collider2D ghostCol)
     {
-        // กำลังพุ่งไปตามทิศแรงโน้มถ่วง (ตกลงพื้น หรือพุ่งขึ้นเพดาน)
         float vAlongGravity = GetVelY() * gravityDir;
-
-        // เทียบตำแหน่งจุดศูนย์กลางตัวละครว่าอยู่ด้านบนของผี (ตามทิศแรงโน้มถ่วงตอนนั้น)
-        float relative = (col.bounds.center.y - ghostCol.bounds.center.y) * -gravityDir;
-
-        // ผ่อนปรนให้เช็กง่ายขึ้น: แค่ศูนย์กลางตัวละครอยู่สูงกว่าจุดกึ่งกลางผีเล็กน้อย (0.1f) และกำลังเคลื่อนเข้าหา
-        return vAlongGravity > 0.05f && relative > ghostCol.bounds.extents.y * 0.1f;
+        float relativeAbove = (col.bounds.center.y - ghostCol.bounds.center.y) * -gravityDir;
+        return vAlongGravity > -0.5f && relativeAbove > -ghostCol.bounds.extents.y * 0.2f;
     }
 
     public void Die()
@@ -200,12 +187,4 @@ public class RunnerController : MonoBehaviour
 
     void SetBool(string n, bool v) { if (animParams.Contains(n)) animator.SetBool(n, v); }
     void SetTrigger(string n) { if (animParams.Contains(n)) animator.SetTrigger(n); }
-
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        float x = transform.position.x;
-        Gizmos.DrawLine(new Vector3(x - 3, killBelowY), new Vector3(x + 3, killBelowY));
-        Gizmos.DrawLine(new Vector3(x - 3, killAboveY), new Vector3(x + 3, killAboveY));
-    }
 }

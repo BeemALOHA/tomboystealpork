@@ -14,7 +14,7 @@ public class Ghost : Hazard
 
     [Header("ตอนโดนเหยียบ")]
     public GameObject stompEffect;
-    public Animator animator;          // ถ้ามี trigger ชื่อ "Stomped" จะเล่น
+    public Animator ghostAnimator;          // ถ้ามี trigger ชื่อ "Stomped" จะเล่น
     public float destroyDelay = 0.3f;
 
     public bool IsDead { get; private set; }
@@ -41,10 +41,17 @@ public class Ghost : Hazard
     {
         if (IsDead) return;
         IsDead = true;
+
+        int bonus = scoreValue > 0 ? scoreValue : 50;
+        if (ScoreSystem.Instance != null)
+            ScoreSystem.Instance.AddStompBonus(bonus);
+        else
+            GameManager.Instance?.AddBonus(bonus);
+
         foreach (var c in GetComponentsInChildren<Collider2D>()) c.enabled = false;
         if (stompEffect != null) Instantiate(stompEffect, transform.position, Quaternion.identity);
-        if (animator != null) animator.SetTrigger("Stomped");
-        else transform.localScale = new Vector3(transform.localScale.x * 1.3f, transform.localScale.y * 0.3f, 1f); // แบนแบบมาริโอ้
+        if (ghostAnimator != null) ghostAnimator.SetTrigger("Stomped");
+        else transform.localScale = new Vector3(transform.localScale.x * 1.3f, transform.localScale.y * 0.3f, 1f);
         Destroy(gameObject, destroyDelay);
     }
 }
