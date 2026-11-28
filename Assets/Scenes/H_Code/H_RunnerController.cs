@@ -140,13 +140,17 @@ public class RunnerController : MonoBehaviour
         if (ghost != null)
         {
             if (ghost.IsDead) return;
+
+            // เหยียบโดนหัว + เปิดความสามารถเหยียบผีไว้ -> ผีตาย เรารอดและเด้งกลับ
             if (canStompGhosts && IsStomping(other))
             {
                 ghost.Stomp();
-                SetVelY(-gravityDir * stompBounce); // เด้งกลับ
+                SetVelY(-gravityDir * stompBounce);
                 GameManager.Instance?.AddBonus(ghost.scoreValue);
                 return;
             }
+
+            // ไม่ได้เหยียบหัว (ชนด้านข้าง/ด้านล่าง หรือตัวละครเหยียบผีไม่ได้) -> เราตาย
             Die();
             return;
         }
@@ -154,15 +158,16 @@ public class RunnerController : MonoBehaviour
         if (other.GetComponentInParent<Hazard>() != null) Die();
     }
 
-    /// <summary>
-    /// เหยียบ = กำลังเคลื่อนไปทางแรงโน้มถ่วง และอยู่ "เหนือ" ผี (เทียบกับแรงโน้มถ่วงตอนนั้น)
-    /// เลยใช้ได้ทั้งตอนตกลงพื้น และตอนฟริบพุ่งขึ้นไปเหยียบผีที่ลอยใกล้เพดาน
-    /// </summary>
     bool IsStomping(Collider2D ghostCol)
     {
+        // กำลังพุ่งไปตามทิศแรงโน้มถ่วง (ตกลงพื้น หรือพุ่งขึ้นเพดาน)
         float vAlongGravity = GetVelY() * gravityDir;
+
+        // เทียบตำแหน่งจุดศูนย์กลางตัวละครว่าอยู่ด้านบนของผี (ตามทิศแรงโน้มถ่วงตอนนั้น)
         float relative = (col.bounds.center.y - ghostCol.bounds.center.y) * -gravityDir;
-        return vAlongGravity > 0.1f && relative > ghostCol.bounds.extents.y * 0.3f;
+
+        // ผ่อนปรนให้เช็กง่ายขึ้น: แค่ศูนย์กลางตัวละครอยู่สูงกว่าจุดกึ่งกลางผีเล็กน้อย (0.1f) และกำลังเคลื่อนเข้าหา
+        return vAlongGravity > 0.05f && relative > ghostCol.bounds.extents.y * 0.1f;
     }
 
     public void Die()
