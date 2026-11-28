@@ -599,6 +599,10 @@ PrefabInstance:
       propertyPath: levelPanel
       value: 
       objectReference: {fileID: 11461768}
+    - target: {fileID: 5632335863373699728, guid: ca46e66ba80835c46a1b7bdb9b769688, type: 3}
+      propertyPath: endlessScene
+      value: Testmap
+      objectReference: {fileID: 0}
     - target: {fileID: 7679008426359511372, guid: ca46e66ba80835c46a1b7bdb9b769688, type: 3}
       propertyPath: m_Name
       value: Menu
