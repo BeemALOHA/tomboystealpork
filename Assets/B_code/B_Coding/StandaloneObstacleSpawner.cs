@@ -7,26 +7,26 @@ public class StandaloneObstacleSpawner : MonoBehaviour
     [SerializeField] private float scrollSpeed = 8f;
     [SerializeField] private float spawnInterval = 2f;
     [SerializeField] private float destroyX = -25f;
+    [SerializeField] private bool preventImmediateRepeat = true;
 
     private readonly List<GameObject> spawnedObjects = new List<GameObject>();
     private float timer;
+    private int lastIndex = -1;
 
     private void Update()
     {
-        // 1. นับเวลาเสกอุปสรรคใหม่
         timer += Time.deltaTime;
         if (timer >= spawnInterval && obstaclePrefabs != null && obstaclePrefabs.Count > 0)
         {
             timer = 0f;
-            GameObject prefab = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Count)];
-            if (prefab != null)
+            int index = PickRandomIndex();
+            if (index >= 0 && obstaclePrefabs[index] != null)
             {
-                GameObject obj = Instantiate(prefab, transform.position, Quaternion.identity);
+                GameObject obj = Instantiate(obstaclePrefabs[index], transform.position, Quaternion.identity);
                 spawnedObjects.Add(obj);
             }
         }
 
-        // 2. เลื่อนอุปสรรคที่เกิดแล้วไปทางซ้าย และลบเมื่อพ้นจอ
         for (int i = spawnedObjects.Count - 1; i >= 0; i--)
         {
             GameObject obj = spawnedObjects[i];
@@ -44,5 +44,20 @@ public class StandaloneObstacleSpawner : MonoBehaviour
                 spawnedObjects.RemoveAt(i);
             }
         }
+    }
+
+    private int PickRandomIndex()
+    {
+        int count = obstaclePrefabs.Count;
+        if (count == 0) return -1;
+
+        int chosen = Random.Range(0, count);
+        if (preventImmediateRepeat && count > 1 && chosen == lastIndex)
+        {
+            chosen = (chosen + Random.Range(1, count)) % count;
+        }
+
+        lastIndex = chosen;
+        return chosen;
     }
 }
